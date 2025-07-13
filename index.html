@@ -3,21 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <title>GESA SMART START FLASHCARD</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    /* Reset dan asas */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #74ebd5, #acb6e5);
       text-align: center;
-      padding: 40px 20px;
-      margin: 0;
+      padding: 20px 10px;
       transition: background 1s ease;
     }
 
     h1 {
-      font-size: 2em;
+      font-size: 1.8em;
       color: #fff;
       text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
-      margin-bottom: 40px;
+      margin-bottom: 30px;
       animation: fadeInDown 1s ease-out;
     }
 
@@ -36,13 +43,14 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 25px;
+      gap: 20px;
       max-width: 1200px;
       margin: auto;
     }
 
+    /* Saiz kad berdasarkan peranti */
     .card {
-      width: 130px;
+      width: calc(20% - 16px); /* default untuk desktop */
       height: 180px;
       perspective: 1000px;
       cursor: pointer;
@@ -103,6 +111,32 @@
 
     .card-back img:hover {
       transform: scale(1.05);
+    }
+
+    /* Paparan Telefon Menegak */
+    @media screen and (max-width: 767px) {
+      .card {
+        width: 100%; /* Hanya satu kad sebaris */
+        height: 200px;
+      }
+
+      h1 {
+        font-size: 1.5em;
+      }
+    }
+
+    /* Tablet Melintang */
+    @media screen and (min-width: 768px) and (max-width: 1023px) {
+      .card {
+        width: calc(33.33% - 16px); /* 3 kad sebaris */
+      }
+    }
+
+    /* Desktop Melintang */
+    @media screen and (min-width: 1024px) {
+      .card {
+        width: calc(20% - 16px); /* 5 kad sebaris */
+      }
     }
   </style>
 </head>
